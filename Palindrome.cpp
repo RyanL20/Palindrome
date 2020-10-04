@@ -12,18 +12,22 @@ int main() {
 
   cout << "Is it a Palindrome?" << endl;
   cout << "Enter up to 80 characters to check." << endl;
-  cin.get(input_str, 80);
+  cin.get(input_str, 81);
   cin.get();
   
   int count;
   int j = 0;
   
-  //need to remove punctuation and change to lowercase.
+  //need to remove punctuation.
 
   
-  // removes space, copy to nospace_string
   for (int i = 0; i < strlen(input_str); i++) {
     if (input_str[i] != '\n') {
+
+      //change all to lowercase
+      input_str[i] = tolower(input_str[i]);
+      
+      // removes space, copy to nonspace_string
       if (input_str[i] != ' ') {
 	nospace_str[j] = input_str[i];
 	j++;
