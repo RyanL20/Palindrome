@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstdio>
 #include <cstring>
 
 using namespace std;
@@ -11,27 +10,27 @@ int main() {
   char reverse_str[81] = {'\0'};
 
   cout << "Is it a Palindrome?" << endl;
-  cout << "Enter up to 80 characters to check." << endl;
+  cout << "Enter up to 80 characters to find out!" << endl;
   cin.get(input_str, 81);
   cin.get();
   
   int count;
   int j = 0;
-  
-  //need to remove punctuation.
-
-  
+   
   for (int i = 0; i < strlen(input_str); i++) {
     if (input_str[i] != '\n') {
 
       //change all to lowercase
+      //learned tolower from http://www.cplusplus.com/reference/cctype/tolower/
       input_str[i] = tolower(input_str[i]);
       
-      // removes space, copy to nonspace_string
-      if (input_str[i] != ' ') {
+      //removes space, removes non alphanumeric characters, copy to nonspace_string
+      //learned isalnum from http://www.cplusplus.com/reference/cctype/isalnum/
+      if (input_str[i] != ' ' && isalnum(input_str[i]) !=0){
 	nospace_str[j] = input_str[i];
 	j++;
       }
+      
     }
   }
   
@@ -54,9 +53,6 @@ int main() {
   else {
     cout << "Not a Palindrome" << endl;   
   }
-     
-  cout << input_str << endl;
-  cout << nospace_str << endl;
-  cout << reverse_str << endl;
+  
   return 0;
 }
